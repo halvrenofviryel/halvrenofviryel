@@ -1,5 +1,11 @@
 # Ali Toygar Abak — Founder of Phionyx Research
 
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0002--3718--4010-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0002-3718-4010)
+[![PyPI: phionyx-core](https://img.shields.io/pypi/v/phionyx-core?label=phionyx-core&color=3776AB&logo=pypi&logoColor=white)](https://pypi.org/project/phionyx-core/)
+[![Zenodo DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20027534-1682D4)](https://doi.org/10.5281/zenodo.20027534)
+[![Substack](https://img.shields.io/badge/Substack-Deterministic_AI_Engineering-FF6719?logo=substack&logoColor=white)](https://phionyxresearch.substack.com)
+[![X: @phionyx_ai](https://img.shields.io/badge/X-%40phionyx__ai-000000?logo=x&logoColor=white)](https://x.com/phionyx_ai)
+
 I build deterministic governance infrastructure for AI systems.
 
 Phionyx treats large language model outputs as noisy cognitive measurements rather than final answers. The goal is to place a verifiable governance runtime between AI systems and end users: safety gates, ethics gates, telemetry, evaluation standards, state evolution, and audit-first control.
@@ -25,6 +31,11 @@ Phionyx treats large language model outputs as noisy cognitive measurements rath
 - [phionyx-research](https://github.com/halvrenofviryel/phionyx-research) — deterministic AI runtime governance for LLM systems (Python; PyPI: `phionyx-core`)
 - [phionyx-evaluation-standard](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard for agentic AI runtimes
 - [hearthos](https://github.com/halvrenofviryel/hearthos) — bounded-authority household AI orchestration; TypeScript reference implementation, browser-only demo, Starter Kit PDF (AGPL-3.0)
+
+## GitHub Activity
+
+[![Toygar's GitHub stats](https://github-readme-stats.vercel.app/api?username=halvrenofviryel&show_icons=true&hide=stars&hide_border=true&include_all_commits=true&count_private=false&theme=default)](https://github.com/halvrenofviryel)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=halvrenofviryel&layout=compact&hide_border=true&langs_count=6&theme=default)](https://github.com/halvrenofviryel)
 
 ## Links
 
