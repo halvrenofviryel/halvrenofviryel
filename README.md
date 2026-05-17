@@ -32,11 +32,6 @@ Phionyx treats large language model outputs as noisy cognitive measurements rath
 - [phionyx-evaluation-standard](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard for agentic AI runtimes
 - [hearthos](https://github.com/halvrenofviryel/hearthos) — bounded-authority household AI orchestration; TypeScript reference implementation, browser-only demo, Starter Kit PDF (AGPL-3.0)
 
-## GitHub Activity
-
-[![Toygar's GitHub stats](https://github-readme-stats.vercel.app/api?username=halvrenofviryel&show_icons=true&hide=stars&hide_border=true&include_all_commits=true&count_private=false&theme=default)](https://github.com/halvrenofviryel)
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=halvrenofviryel&layout=compact&hide_border=true&langs_count=6&theme=default)](https://github.com/halvrenofviryel)
-
 ## Links
 
 - Website: https://phionyx.ai
