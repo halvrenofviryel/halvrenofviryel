@@ -13,6 +13,7 @@ Phionyx treats large language model outputs as noisy cognitive measurements rath
 ## Current Work
 
 - **Phionyx Core SDK** — deterministic AI governance runtime
+- **Phionyx MCP Governance Stack** — two-layer runtime evidence for AI coding agents (Claude Code, Cursor, Zed, JetBrains): outward MCP trust boundary (descriptor signing, RGE v0.2 envelope, audit chain) + inward self-claim gate (three-layer verification over the agent's own "fixed / tested / changed" declarations); both share one trace per session
 - **HearthOS** — bounded-authority household AI: the operating principle from Volume I of the Governance Trilogy, demonstrated end-to-end in three browser-only modules (Diagnostic, Weekly Reset, Boundary Script) backed by an open-source TypeScript reference implementation and a free printable Starter Kit
 - **Phionyx Evaluation Standard** — behavioural reliability, safety, coherence, determinism, and long-term stability evaluation
 - **Governance Node Architecture** — multi-gate AI control and release model
@@ -29,6 +30,8 @@ Phionyx treats large language model outputs as noisy cognitive measurements rath
 ## Public Repositories
 
 - [phionyx-research](https://github.com/halvrenofviryel/phionyx-research) — deterministic AI runtime governance for LLM systems (Python; PyPI: `phionyx-core`)
+- [phionyx-mcp-server](https://github.com/halvrenofviryel/phionyx-mcp-server) — MCP trust boundary governance: descriptor signing, RGE v0.2 envelope, tamper-evident audit chain (aligned with arXiv:2512.06556 threat taxonomy)
+- [phionyx-pipeline-mcp](https://github.com/halvrenofviryel/phionyx-pipeline-mcp) — self-governance MCP for Claude Code: three-layer verification gate (LLM declaration → git diff → physics gate) over the agent's own "fixed / tested / changed" claims
 - [phionyx-evaluation-standard](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard for agentic AI runtimes
 - [hearthos](https://github.com/halvrenofviryel/hearthos) — bounded-authority household AI orchestration; TypeScript reference implementation, browser-only demo, Starter Kit PDF (AGPL-3.0)
 
