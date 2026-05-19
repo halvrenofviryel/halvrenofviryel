@@ -35,6 +35,10 @@ Phionyx treats large language model outputs as noisy cognitive measurements rath
 - [phionyx-evaluation-standard](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard for agentic AI runtimes
 - [hearthos](https://github.com/halvrenofviryel/hearthos) — bounded-authority household AI orchestration; TypeScript reference implementation, browser-only demo, Starter Kit PDF (AGPL-3.0)
 
+## Latest writing
+
+- **MCP Connects Tools. Runtime Evidence Keeps Agents Accountable.** (2026-05-19) — https://x.com/phionyx_ai/status/2056811861782274094
+
 ## Links
 
 - Website: https://phionyx.ai
