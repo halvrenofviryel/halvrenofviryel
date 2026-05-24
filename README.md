@@ -8,20 +8,48 @@
 
 I build deterministic governance infrastructure for AI systems.
 
-Phionyx treats large language model outputs as noisy cognitive measurements rather than final answers. The goal is to place a verifiable governance runtime between AI systems and end users: safety gates, ethics gates, telemetry, evaluation standards, state evolution, and audit-first control.
+Phionyx treats large language model outputs as noisy cognitive measurements rather than final answers. The goal is to place a verifiable governance runtime between AI systems and real-world action: safety gates, ethics gates, telemetry, evaluation standards, state evolution, and audit-first control.
 
-> **Latest (2026-05):** Phionyx Core **v0.4.0** is live on PyPI alongside three open-source MCP companion packages — `phionyx-mcp-server` (MCP trust boundary), `phionyx-pipeline-mcp` (agent self-claim gate), and `phionyx-eval-inspect` (Inspect AI bridge). They share one trace per session. See [phionyx.ai/runtime-evidence](https://phionyx.ai/runtime-evidence) for the argument and `pip install phionyx-core==0.4.0` to try it.
+> **Latest (2026-05):** **Phionyx Core v0.5.0** is live on PyPI ([`pip install phionyx-core`](https://pypi.org/project/phionyx-core/)) alongside **5 open-source companion packages** that wire the runtime into MCP hosts, Inspect AI, LangChain / LangGraph, and the OpenAI Agents SDK. **Phionyx Evaluation Standard v0.2.0** ([Released 2026-05-24](https://github.com/halvrenofviryel/phionyx-evaluation-standard/releases/tag/v0.2.0)) ships the **Evidence-Oriented Runtime Telemetry Profile** — a vendor-neutral JSON schema for governance evidence rows. See [phionyx.ai](https://phionyx.ai) for the runtime narrative and where to start.
 
-## Current Work
+## Where Phionyx fits
 
-- **Phionyx Core SDK** — deterministic AI governance runtime (v0.4.0 live on PyPI)
-- **Phionyx MCP Governance Stack** — three-layer runtime evidence for AI coding agents (Claude Code, Cursor, Zed, JetBrains): outward MCP trust boundary (descriptor signing, RGE v0.2 envelope, audit chain) + inward self-claim gate (three-layer verification over the agent's own "fixed / tested / changed" declarations) + Inspect AI interoperability bridge (envelope chain → viewable `.eval` log); all share one trace per session
-- **HearthOS** — bounded-authority household AI: the operating principle from Volume I of the Governance Trilogy, demonstrated end-to-end in three browser-only modules (Diagnostic, Weekly Reset, Boundary Script) backed by an open-source TypeScript reference implementation and a free printable Starter Kit
-- **Phionyx Evaluation Standard** — behavioural reliability, safety, coherence, determinism, and long-term stability evaluation
-- **Governance Node Architecture** — multi-gate AI control and release model
-- **Trace / Wheel & Balance** — educational and narrative ecosystem for resilience, decision-making, and non-violent RPG-based learning ([trace.phionyx.ai](https://trace.phionyx.ai) · [@trace_phionyx](https://x.com/trace_phionyx))
+The work organises around three audience entry points, mirrored on [phionyx.ai](https://phionyx.ai):
 
-## Core Principles
+### Bounded Authority — for safety-first AI providers
+
+> AI output should not directly become action. Phionyx adds deterministic gates between model output and real-world action.
+
+Repos that implement and demonstrate the pattern:
+
+- [**phionyx-research**](https://github.com/halvrenofviryel/phionyx-research) — the core runtime; 46-block canonical pipeline, kill switch, HITL queue, ethics gate, audit chain. `pip install phionyx-core`.
+- [**phionyx-mcp-server**](https://github.com/halvrenofviryel/phionyx-mcp-server) — MCP trust boundary; descriptor signing, signed envelopes, audit chain over third-party MCP tool calls.
+- [**phionyx-pipeline-mcp**](https://github.com/halvrenofviryel/phionyx-pipeline-mcp) — agent self-claim gate; verifies what the agent says it did against the repository's actual diff.
+- [**hearthos**](https://github.com/halvrenofviryel/hearthos) — applied: bounded-authority household AI. Browser-only demo + policy gates. The Governance Trilogy, Book 1.
+
+→ Read the full argument: [phionyx.ai/bounded-authority](https://phionyx.ai/bounded-authority)
+
+### Narrative Coherence — for game AI, NPC, and storytelling systems
+
+> When AI characters drift, the story breaks. Phionyx detects narrative drift, state incoherence, and unsafe output before the scene reaches the player.
+
+- [**phionyx-research**](https://github.com/halvrenofviryel/phionyx-research) ships the NPC drift reference trace under [`examples/physics/`](https://github.com/halvrenofviryel/phionyx-research/blob/main/examples/physics/npc_drift_demo.py) — source-inspectable today; end-to-end runnable from the v0.6.0 classifier surface.
+- [**trace.phionyx.ai/school**](https://trace.phionyx.ai/school) — School RPG demo (external surface) running the same coherence mechanism end-to-end.
+
+→ Read the full argument: [phionyx.ai/narrative-coherence](https://phionyx.ai/narrative-coherence)
+
+### Reviewer Evidence — for researchers and technical reviewers
+
+> Every claim should be reproducible. Verify Phionyx through installable packages, tests, evidence rows, and public artefacts.
+
+- [**phionyx-evaluation-standard**](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard. v0.2.0 (today) ships the Evidence-Oriented Runtime Telemetry Profile + JSON Schema + worked evidence rows.
+- [**phionyx-eval-inspect**](https://github.com/halvrenofviryel/phionyx-eval-inspect) — Inspect AI bridge. Runtime evidence exported into Inspect `.eval` evaluation logs. Replayable agent evaluations.
+- [**phionyx_langchain_langgraph**](https://github.com/halvrenofviryel/phionyx_langchain_langgraph) — LangChain + LangGraph adapters. Every chain / tool / LLM event + supervisor handoff becomes a signed, hash-chained envelope.
+- [**phionyx_openai_agents**](https://github.com/halvrenofviryel/phionyx_openai_agents) — OpenAI Agents SDK tracing bridge. Every Trace and Span becomes a signed, hash-chained envelope.
+
+→ Read the full Evidence Matrix: [phionyx.ai/evidence](https://phionyx.ai/evidence)
+
+## Core principles
 
 - LLM output is not truth; it is a signal requiring governance.
 - AI systems need runtime control, not only prompt-level safety.
@@ -29,27 +57,21 @@ Phionyx treats large language model outputs as noisy cognitive measurements rath
 - Evaluation must include behavioural stability, not only benchmark performance.
 - Human-facing AI should be explainable, auditable, and interruptible.
 
-## Public Repositories
-
-- [phionyx-research](https://github.com/halvrenofviryel/phionyx-research) — runtime evidence layer for agentic AI (Python; PyPI: `phionyx-core`)
-- [phionyx-mcp-server](https://github.com/halvrenofviryel/phionyx-mcp-server) — MCP trust boundary: descriptor signing, signed envelopes, audit chain over third-party MCP tool calls (aligned with arXiv:2512.06556 threat taxonomy)
-- [phionyx-pipeline-mcp](https://github.com/halvrenofviryel/phionyx-pipeline-mcp) — agent self-claim gate: verifies what the agent says it did against the repository's actual diff
-- [phionyx-eval-inspect](https://github.com/halvrenofviryel/phionyx-eval-inspect) — Inspect AI bridge: Phionyx runtime evidence exported into [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai) `.eval` evaluation logs (interop-only, no AISI endorsement claim)
-- [phionyx-evaluation-standard](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard for agentic AI runtimes
-- [hearthos](https://github.com/halvrenofviryel/hearthos) — bounded-authority household AI orchestration; TypeScript reference implementation, browser-only demo, Starter Kit PDF (AGPL-3.0)
-
 ## Latest writing
 
-- **A model saying "fixed" is not evidence** (2026-05-22 · X Article) — https://x.com/phionyx_ai/status/2057860001117454685
-- **Persistent Worlds Need Deterministic Governance** (2026-05-22 · Substack post 5) — https://phionyxresearch.substack.com/p/persistent-worlds-need-deterministic
-- **MCP Connects Tools. Runtime Evidence Keeps Agents Accountable.** (2026-05-19 · X Article) — https://x.com/phionyx_ai/status/2056811861782274094
+- **Phionyx Evaluation Standard v0.2.0 — Evidence-Oriented Runtime Telemetry Profile** (2026-05-24 · [Release](https://github.com/halvrenofviryel/phionyx-evaluation-standard/releases/tag/v0.2.0))
+- **Persistent Worlds Need Deterministic Governance** (2026-05-22 · Substack post 5 · [link](https://phionyxresearch.substack.com/p/persistent-worlds-need-deterministic))
+- **A model saying "fixed" is not evidence** (2026-05-22 · X Article · [link](https://x.com/phionyx_ai/status/2057860001117454685))
+- **MCP Connects Tools. Runtime Evidence Keeps Agents Accountable.** (2026-05-19 · X Article · [link](https://x.com/phionyx_ai/status/2056811861782274094))
+- **The Phionyx Architecture: Treating LLMs as Sensors, Not Oracles** (2026-05-09 · Substack post 4 · [link](https://phionyxresearch.substack.com/p/the-phionyx-architecture-treating))
 
 ## Links
 
-- Website: https://phionyx.ai · [runtime evidence campaign page](https://phionyx.ai/runtime-evidence)
-- HearthOS demo: https://phionyx.ai/hearthos
-- Substack: https://phionyxresearch.substack.com
-- X: https://x.com/phionyx_ai
+- Website: [phionyx.ai](https://phionyx.ai) — runtime evidence, bounded authority, narrative coherence
+- Trace (narrative + School RPG demo): [trace.phionyx.ai](https://trace.phionyx.ai) · [@trace_phionyx](https://x.com/trace_phionyx)
+- Substack: [phionyxresearch.substack.com](https://phionyxresearch.substack.com)
+- X: [@phionyx_ai](https://x.com/phionyx_ai)
+- ORCID: [0009-0002-3718-4010](https://orcid.org/0009-0002-3718-4010)
 
 ---
 
