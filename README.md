@@ -44,8 +44,8 @@ Repos that implement and demonstrate the pattern:
 
 - [**phionyx-evaluation-standard**](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard. v0.2.0 (today) ships the Evidence-Oriented Runtime Telemetry Profile + JSON Schema + worked evidence rows.
 - [**phionyx-eval-inspect**](https://github.com/halvrenofviryel/phionyx-eval-inspect) — Inspect AI bridge. Runtime evidence exported into Inspect `.eval` evaluation logs. Replayable agent evaluations.
-- [**phionyx_langchain_langgraph**](https://github.com/halvrenofviryel/phionyx_langchain_langgraph) — LangChain + LangGraph adapters. Every chain / tool / LLM event + supervisor handoff becomes a signed, hash-chained envelope.
-- [**phionyx_openai_agents**](https://github.com/halvrenofviryel/phionyx_openai_agents) — OpenAI Agents SDK tracing bridge. Every Trace and Span becomes a signed, hash-chained envelope.
+- [**phionyx_langchain_langgraph**](https://github.com/halvrenofviryel/phionyx-langchain-langgraph) — LangChain + LangGraph adapters. Every chain / tool / LLM event + supervisor handoff becomes a signed, hash-chained envelope.
+- [**phionyx_openai_agents**](https://github.com/halvrenofviryel/phionyx-openai-agents) — OpenAI Agents SDK tracing bridge. Every Trace and Span becomes a signed, hash-chained envelope.
 
 → Read the full Evidence Matrix: [phionyx.ai/evidence](https://phionyx.ai/evidence)
 
