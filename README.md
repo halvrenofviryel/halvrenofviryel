@@ -10,7 +10,15 @@ I build deterministic governance infrastructure for AI systems.
 
 Phionyx treats large language model outputs as noisy cognitive measurements rather than final answers. The goal is to place a verifiable governance runtime between AI systems and real-world action: safety gates, ethics gates, telemetry, evaluation standards, state evolution, and audit-first control.
 
-> **Latest (2026-05):** **Phionyx Core v0.5.0** is live on PyPI ([`pip install phionyx-core`](https://pypi.org/project/phionyx-core/)) alongside **5 open-source companion packages** that wire the runtime into MCP hosts, Inspect AI, LangChain / LangGraph, and the OpenAI Agents SDK. **Phionyx Evaluation Standard v0.2.0** ([Released 2026-05-24](https://github.com/halvrenofviryel/phionyx-evaluation-standard/releases/tag/v0.2.0)) ships the **Evidence-Oriented Runtime Telemetry Profile** — a vendor-neutral JSON schema for governance evidence rows. See [phionyx.ai](https://phionyx.ai) for the runtime narrative and where to start.
+> **Currently shipping:** **Phionyx Core v0.7.2** is live on PyPI ([`pip install phionyx-core`](https://pypi.org/project/phionyx-core/)) alongside **5 open-source companion packages** that wire the runtime into MCP hosts, Inspect AI, LangChain / LangGraph, and the OpenAI Agents SDK. **Phionyx Evaluation Standard v0.2.0** ([released 2026-05-24](https://github.com/halvrenofviryel/phionyx-evaluation-standard/releases/tag/v0.2.0)) ships the **Evidence-Oriented Runtime Telemetry Profile** — a vendor-neutral JSON schema for governance evidence rows. See [phionyx.ai](https://phionyx.ai) for the runtime narrative and where to start.
+
+## Three distinct things, three version lines
+
+Phionyx ships three things that must not be cross-attributed — each has its own version line:
+
+- **Engine — `phionyx-core`** (the SDK, **v0.7.2** on PyPI): the deterministic-cognition engine — 46-block canonical pipeline (contract v3.8.0), state vector, kill switch, HITL, ethics/safety gates, signed audit chain. It is the **reference implementation** that scores **L3 + D3** on the Evaluation Standard. It is *not* claim-governance-rated.
+- **Gate — `phionyx-pipeline-mcp`** (stable **v0.2.0**, alpha **v0.3.0a1**): an MCP server that verifies an agent's own "I fixed / I tested / this changed" claims against git-diff truth. This is the component the **Claim-Governance ladder (CG-L0…CG-L5)** rates — stable v0.2.0 = **CG-L2**; alpha v0.3.0a1 = **CG-L3** (opt-in / default-off, already on PyPI), with the stable channel remaining CG-L2. The gate is Layer 3 of the 5-layer governance stack. `phionyx-mcp-server` (**v0.1.0**) is the outward MCP trust boundary.
+- **Standard — `phionyx-evaluation-standard`** (**v0.1.1** + **v0.2.0** released; **v0.3** is a draft layer): a vendor-neutral spec defining **L0-L3** (evaluation maturity), **D0-D3** (determinism), and **CG-L0…CG-L5** (claim-governance, the v0.3 draft layer). L0-L3 / D0-D3 rate any runtime; CG-L0…CG-L5 rates the gate. `phionyx-core` is the reference implementation scoring L3 + D3.
 
 ## Where Phionyx fits
 
@@ -22,9 +30,9 @@ The work organises around three audience entry points, mirrored on [phionyx.ai](
 
 Repos that implement and demonstrate the pattern:
 
-- [**phionyx-research**](https://github.com/halvrenofviryel/phionyx-research) — the core runtime; 46-block canonical pipeline, kill switch, HITL queue, ethics gate, audit chain. `pip install phionyx-core`.
-- [**phionyx-mcp-server**](https://github.com/halvrenofviryel/phionyx-mcp-server) — MCP trust boundary; descriptor signing, signed envelopes, audit chain over third-party MCP tool calls.
-- [**phionyx-pipeline-mcp**](https://github.com/halvrenofviryel/phionyx-pipeline-mcp) — agent self-claim gate; verifies what the agent says it did against the repository's actual diff.
+- [**phionyx-research**](https://github.com/halvrenofviryel/phionyx-research) — the core runtime (`phionyx-core`, the engine, v0.7.2); 46-block canonical pipeline, kill switch, HITL queue, ethics gate, audit chain. `pip install phionyx-core`.
+- [**phionyx-mcp-server**](https://github.com/halvrenofviryel/phionyx-mcp-server) — MCP trust boundary (v0.1.0); descriptor signing, signed envelopes, audit chain over third-party MCP tool calls.
+- [**phionyx-pipeline-mcp**](https://github.com/halvrenofviryel/phionyx-pipeline-mcp) — agent self-claim gate (stable v0.2.0 = CG-L2; alpha v0.3.0a1 = CG-L3); verifies what the agent says it did against the repository's actual diff. This is the component the Claim-Governance ladder rates.
 - [**hearthos**](https://github.com/halvrenofviryel/hearthos) — applied: bounded-authority household AI. Browser-only demo + policy gates. The Governance Trilogy, Book 1.
 
 → Read the full argument: [phionyx.ai/bounded-authority](https://phionyx.ai/bounded-authority)
@@ -33,7 +41,7 @@ Repos that implement and demonstrate the pattern:
 
 > When AI characters drift, the story breaks. Phionyx detects narrative drift, state incoherence, and unsafe output before the scene reaches the player.
 
-- [**phionyx-research**](https://github.com/halvrenofviryel/phionyx-research) ships the NPC drift reference trace under [`examples/physics/`](https://github.com/halvrenofviryel/phionyx-research/blob/main/examples/physics/npc_drift_demo.py) — source-inspectable today; end-to-end runnable from the v0.6.0 classifier surface.
+- [**phionyx-research**](https://github.com/halvrenofviryel/phionyx-research) ships the NPC drift reference trace under [`examples/physics/`](https://github.com/halvrenofviryel/phionyx-research/blob/main/examples/physics/npc_drift_demo.py) — source-inspectable today; end-to-end runnable on the current `phionyx-core` v0.7.2 classifier surface.
 - [**trace.phionyx.ai/school**](https://trace.phionyx.ai/school) — School RPG demo (external surface) running the same coherence mechanism end-to-end.
 
 → Read the full argument: [phionyx.ai/narrative-coherence](https://phionyx.ai/narrative-coherence)
@@ -42,10 +50,10 @@ Repos that implement and demonstrate the pattern:
 
 > Every claim should be reproducible. Verify Phionyx through installable packages, tests, evidence rows, and public artefacts.
 
-- [**phionyx-evaluation-standard**](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard. v0.2.0 (today) ships the Evidence-Oriented Runtime Telemetry Profile + JSON Schema + worked evidence rows.
-- [**phionyx-eval-inspect**](https://github.com/halvrenofviryel/phionyx-eval-inspect) — Inspect AI bridge. Runtime evidence exported into Inspect `.eval` evaluation logs. Replayable agent evaluations.
-- [**phionyx_langchain_langgraph**](https://github.com/halvrenofviryel/phionyx-langchain-langgraph) — LangChain + LangGraph adapters. Every chain / tool / LLM event + supervisor handoff becomes a signed, hash-chained envelope.
-- [**phionyx_openai_agents**](https://github.com/halvrenofviryel/phionyx-openai-agents) — OpenAI Agents SDK tracing bridge. Every Trace and Span becomes a signed, hash-chained envelope.
+- [**phionyx-evaluation-standard**](https://github.com/halvrenofviryel/phionyx-evaluation-standard) — vendor-independent evaluation standard (v0.1.1 + v0.2.0 released; v0.3 draft layer). Defines **L0-L3** (evaluation maturity), **D0-D3** (determinism), and **CG-L0…CG-L5** (claim-governance, v0.3 draft). v0.2.0 ships the Evidence-Oriented Runtime Telemetry Profile + JSON Schema + worked evidence rows. `phionyx-core` is the reference implementation scoring **L3 + D3**; the CG ladder rates the **gate** `phionyx-pipeline-mcp`.
+- [**phionyx-eval-inspect**](https://github.com/halvrenofviryel/phionyx-eval-inspect) — Inspect AI bridge (v0.1.0). Runtime evidence exported into Inspect `.eval` evaluation logs. Replayable agent evaluations.
+- [**phionyx-langchain-langgraph**](https://github.com/halvrenofviryel/phionyx-langchain-langgraph) — LangChain + LangGraph adapters (v0.1.0a1). Every chain / tool / LLM event + supervisor handoff becomes a signed, hash-chained envelope.
+- [**phionyx-openai-agents**](https://github.com/halvrenofviryel/phionyx-openai-agents) — OpenAI Agents SDK tracing bridge (v0.1.0a1). Every Trace and Span becomes a signed, hash-chained envelope.
 
 → Read the full Evidence Matrix: [phionyx.ai/evidence](https://phionyx.ai/evidence)
 
