@@ -8,7 +8,7 @@
 
 I build deterministic governance infrastructure for AI systems.
 
-Phionyx treats large language model outputs as noisy cognitive measurements rather than final answers. The goal is to place a verifiable governance runtime between AI systems and real-world action: safety gates, ethics gates, telemetry, evaluation standards, state evolution, and audit-first control.
+Phionyx treats large language model outputs as noisy measurements rather than final answers. The goal is to place a verifiable governance runtime between AI systems and real-world action: safety gates, ethics gates, telemetry, evaluation standards, state evolution, and audit-first control.
 
 > **Currently shipping:** **Phionyx Core v0.7.2** is live on PyPI ([`pip install phionyx-core`](https://pypi.org/project/phionyx-core/)) alongside **5 open-source companion packages** that wire the runtime into MCP hosts, Inspect AI, LangChain / LangGraph, and the OpenAI Agents SDK. **Phionyx Evaluation Standard v0.2.0** ([released 2026-05-24](https://github.com/halvrenofviryel/phionyx-evaluation-standard/releases/tag/v0.2.0)) ships the **Evidence-Oriented Runtime Telemetry Profile** — a vendor-neutral JSON schema for governance evidence rows. See [phionyx.ai](https://phionyx.ai) for the runtime narrative and where to start.
 
@@ -16,7 +16,7 @@ Phionyx treats large language model outputs as noisy cognitive measurements rath
 
 Phionyx ships three things that must not be cross-attributed — each has its own version line:
 
-- **Engine — `phionyx-core`** (the SDK, **v0.7.2** on PyPI): the deterministic-cognition engine — 46-block canonical pipeline (contract v3.8.0), state vector, kill switch, HITL, ethics/safety gates, signed audit chain. It is the **reference implementation** that scores **L3 + D3** on the Evaluation Standard. It is *not* claim-governance-rated.
+- **Engine — `phionyx-core`** (the SDK, **v0.7.2** on PyPI): the deterministic engine — 46-block canonical pipeline (contract v3.8.0), state vector, kill switch, HITL, ethics/safety gates, signed audit chain. It is the **reference implementation** that scores **L3 + D3** on the Evaluation Standard. It is *not* claim-governance-rated.
 - **Gate — `phionyx-pipeline-mcp`** (stable **v0.2.0**, alpha **v0.3.0a1**): an MCP server that verifies an agent's own "I fixed / I tested / this changed" claims against git-diff truth. This is the component the **Claim-Governance ladder (CG-L0…CG-L5)** rates — stable v0.2.0 = **CG-L2**; alpha v0.3.0a1 = **CG-L3** (opt-in / default-off, already on PyPI), with the stable channel remaining CG-L2. The gate is Layer 3 of the 5-layer governance stack. `phionyx-mcp-server` (**v0.1.0**) is the outward MCP trust boundary.
 - **Standard — `phionyx-evaluation-standard`** (**v0.1.1** + **v0.2.0** released; **v0.3** is a draft layer): a vendor-neutral spec defining **L0-L3** (evaluation maturity), **D0-D3** (determinism), and **CG-L0…CG-L5** (claim-governance, the v0.3 draft layer). L0-L3 / D0-D3 rate any runtime; CG-L0…CG-L5 rates the gate. `phionyx-core` is the reference implementation scoring L3 + D3.
 
