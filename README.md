@@ -12,6 +12,8 @@ Phionyx treats large language model output as a **noisy measurement, not a final
 puts a verifiable runtime between an AI system and real-world action — and, separately, defines a
 neutral way to write down what that runtime actually decided, so an outsider can check it.
 
+Concretely, a governed action carries **policy + a state transition + an abstain / block / rewrite decision + a replayable evidence record** in one inspectable trace — and the runtime governs *its own* development the same way (a runnable [control-hardening demo](https://github.com/halvrenofviryel/phionyx-research/tree/main/tools/offagent/demo) shows what holds, what fails closed, and what stays a documented gap). This sits **alongside** the emerging agent-governance tooling — signed action receipts, agent audit/replay, enterprise control planes — rather than against it; the contribution is that combination, plus the neutral evidence format below. Cooperative-grade governance with a capability boundary, not containment.
+
 ## Three things I work on
 
 These are distinct and must not be cross-attributed — each has its own home.
