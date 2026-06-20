@@ -20,7 +20,7 @@ These are distinct and must not be cross-attributed — each has its own home.
 
 ### 1 · phionyx-research — the deterministic runtime engine
 
-The engine (`phionyx-core`, **v0.8.1** on PyPI): a 46-block canonical pipeline (contract v3.8.0) with a
+The engine (`phionyx-core`, **v0.9.0** on PyPI): a 46-block canonical pipeline (contract v3.8.0) with a
 state vector, kill switch, human-in-the-loop queue, ethics and safety gates, and a signed,
 hash-chained audit trail. Its founding axiom is that **LLM output is a sensor reading**, governed
 before it becomes action — not an oracle to be trusted.
