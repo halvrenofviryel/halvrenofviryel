@@ -1,4 +1,4 @@
-# Ali Toygar Abak — Founder of Phionyx Research
+# Ali Toygar Abak — Phionyx Research
 
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0002--3718--4010-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0002-3718-4010)
 [![PyPI: phionyx-core](https://img.shields.io/pypi/v/phionyx-core?label=phionyx-core&color=3776AB&logo=pypi&logoColor=white)](https://pypi.org/project/phionyx-core/)
@@ -7,89 +7,93 @@
 [![Substack](https://img.shields.io/badge/Substack-Deterministic_AI_Engineering-FF6719?logo=substack&logoColor=white)](https://phionyxresearch.substack.com)
 [![X: @phionyx_ai](https://img.shields.io/badge/X-%40phionyx__ai-000000?logo=x&logoColor=white)](https://x.com/phionyx_ai)
 
-I build deterministic governance infrastructure for AI systems.
+I build runtime governance and evidence infrastructure for agentic AI —
+deterministic control paths, measurement discipline, decision evidence, and
+auditable execution boundaries.
 
-Phionyx treats large language model output as a **noisy measurement, not a final answer**. The work
-puts a verifiable runtime between an AI system and real-world action — and, separately, defines a
-neutral way to write down what that runtime actually decided, so an outsider can check it.
+Phionyx treats large language model output as a **noisy measurement, not a
+final answer**. The work puts a governed runtime between an AI system and
+real-world action — and, separately, defines a neutral way to write down what
+that runtime actually decided, so an outsider can check it. A governed action
+carries **policy + a state transition + an abstain / block / rewrite decision +
+a replayable evidence record** in one inspectable trace. An optional
+[self-claim gate](https://github.com/halvrenofviryel/phionyx-pipeline-mcp)
+checks development-agent claims against repository evidence, and a runnable
+[control-hardening demo](https://github.com/halvrenofviryel/phionyx-research/tree/main/tools/offagent/demo)
+shows what holds, what fails closed, and what stays a documented gap. This sits
+**alongside** the emerging agent-governance tooling rather than against it — a
+capability boundary, not containment.
 
-Concretely, a governed action carries **policy + a state transition + an abstain / block / rewrite decision + a replayable evidence record** in one inspectable trace — and the runtime governs *its own* development the same way (a runnable [control-hardening demo](https://github.com/halvrenofviryel/phionyx-research/tree/main/tools/offagent/demo) shows what holds, what fails closed, and what stays a documented gap). This sits **alongside** the emerging agent-governance tooling — signed action receipts, agent audit/replay, enterprise control planes — rather than against it; the contribution is that combination, plus the neutral evidence format below. Cooperative-grade governance with a capability boundary, not containment.
+## The research programme
 
-## The doctrine the rest of this is held to
+Four research lines, each with its own artefact and its own claim boundary:
 
-**[The Measurement Axioms](https://github.com/halvrenofviryel/measurement-axioms)** ·
-v1.0, August 2026 · [10.5281/zenodo.21763430](https://doi.org/10.5281/zenodo.21763430) · CC BY 4.0
+| Research line | Primary artefact | Public status |
+|---|---|---|
+| **Runtime governance** | [phionyx-research](https://github.com/halvrenofviryel/phionyx-research) (`pip install phionyx-core`) | implemented / experimental runtime |
+| **Runtime evidence** | [ai-runtime-evidence-protocol](https://github.com/halvrenofviryel/ai-runtime-evidence-protocol) (AIREP) | proposed experimental format |
+| **Measurement discipline** | [measurement-axioms](https://github.com/halvrenofviryel/measurement-axioms) | published normative research artefact |
+| **Persistent causal traces** | [resonatus-ontology](https://github.com/halvrenofviryel/resonatus-ontology) | OWL 2 DL / SHACL ontology artefact |
 
-A governance system that returned `safe` may have checked nothing. A governance
-verdict is a *measurement* of a claim about a system, and a measurement that was
-not taken must not be reported as one that passed.
+**Runtime governance** — a canonical pipeline with a state vector, kill switch,
+human-in-the-loop queue, ethics and safety gates, and a hash-chained audit
+trail (optionally Ed25519-signed). Its founding axiom: **LLM output is a sensor
+reading**, governed before it becomes action — not an oracle to be trusted.
 
-Seven axioms, five properties of a governance measurement path, and a six-value
-verdict algebra — `PASS · FAIL · NOT_MEASURED · INCONCLUSIVE · ERROR ·
-NOT_APPLICABLE` — with two prohibitions: **an absence is not a result**, and **a
-proxy is not the thing**. Decision outcome, measurement status, enforcement
-status and evidence level are four orthogonal fields, not one enum.
+**Runtime evidence (AIREP)** — a neutral, vendor- and model-independent record
+format: one hash-chained, canonical-JSON record per AI runtime decision — what
+was decided, on what basis, and, distinctively, **what the evidence does not
+cover**. Checkable offline by two cross-language first-party verifier
+implementations (Python + Node) that agree byte-for-byte; it depends on no
+Phionyx code. **Experimental** — a proposed open format, not a ratified
+standard. Phionyx currently emits RGE records; **no current RGE→AIREP
+conformance claim is made** — RGE is being developed toward AIREP
+interoperability.
 
-The release carries a normative specification (45 numbered requirements, a
-record schema, a reference implementation, 314 tests, a checksum manifest) and
-an audit of **my own** runtime against it: twelve findings, none with
-`verification_status: pass`. One of them was contributed by an outside reader,
-in the conformance probe published alongside the doctrine — it returned a
-positive result having measured nothing. That is the doctrine's central failure,
-produced by the artefact written to detect it, and it is documented rather than
-quietly corrected.
+**Measurement discipline** — the doctrine the rest of this is held to: *a
+governance system that returned `safe` may have checked nothing.* A governance
+verdict is a measurement of a claim about a system, and a measurement that was
+not taken must not be reported as one that passed. Seven axioms, a six-value
+verdict algebra (`PASS · FAIL · NOT_MEASURED · INCONCLUSIVE · ERROR ·
+NOT_APPLICABLE`), and two prohibitions: **an absence is not a result**, and **a
+proxy is not the thing**. The release includes an audit of **my own** runtime
+against it — none of its findings pass, one was contributed by an outside
+reader, and it is documented rather than quietly corrected. No conformance
+claim is made about any implementation, mine included.
+[CDE-12](https://doi.org/10.5281/zenodo.21631868) is the companion instrument:
+criteria for what a system can and cannot *record* about a control decision and
+its fate.
 
-No conformance claim is made about any implementation, mine included.
+**Persistent causal traces** — [Resonatus](https://github.com/halvrenofviryel/resonatus-ontology),
+an OWL 2 DL ontology with a SHACL validation profile for processes whose causal
+history must remain inspectable over time: [w3id.org/resonatus](https://w3id.org/resonatus).
+An ontological model with verification artefacts — it makes no physical or
+empirical claim.
 
-**[CDE-12 — Control-Delivery Evidence](https://doi.org/10.5281/zenodo.21631868)** ·
-v0.2, July 2026 — the companion instrument. Twelve criteria and a five-value
-scale for reporting what a system can and cannot *record* about a control
-decision and its fate. It measures records, not behaviour, and it applies to any
-runtime governance artifact, not only mine.
+## Reviewer evidence — how we try to break our own claims
 
----
+[**phionyx-conformance**](https://github.com/halvrenofviryel/phionyx-conformance)
+runs executable scenarios against our own released tooling and publishes the
+results, including the failures: every current scenario finds a real gap, each
+result is a frozen machine-readable record, and nothing in it has been
+independently reproduced yet — it says so itself. `measurement-axioms` states
+what should be measured; AIREP states how a decision should be recorded; this
+repository is the standing attempt to falsify our own claims with published
+method.
 
-## Three things I work on
+## Adapters & tools
 
-These are distinct and must not be cross-attributed — each has its own home.
-The doctrine above is not a fourth item: it is what the three are measured
-against, including where they fall short.
+Bridges that export the same runtime evidence into common stacks — each records
+events as hash-chained envelopes, optionally Ed25519-signed:
 
-### 1 · phionyx-research — the deterministic runtime engine
+- [phionyx-mcp-server](https://github.com/halvrenofviryel/phionyx-mcp-server) — MCP trust boundary: descriptor hash pinning + an audit chain over third-party MCP tool calls
+- [phionyx-pipeline-mcp](https://github.com/halvrenofviryel/phionyx-pipeline-mcp) — the self-claim gate: verifies an agent's own change/test claims against git-diff truth
+- [phionyx-eval-inspect](https://github.com/halvrenofviryel/phionyx-eval-inspect) (Inspect AI `.eval` logs) · [phionyx-langchain-langgraph](https://github.com/halvrenofviryel/phionyx-langchain-langgraph) · [phionyx-openai-agents](https://github.com/halvrenofviryel/phionyx-openai-agents) · [phionyx-eval](https://github.com/halvrenofviryel/phionyx-eval) · [phionyx-letta](https://github.com/halvrenofviryel/phionyx-letta) · [phionyx-compliance](https://github.com/halvrenofviryel/phionyx-compliance)
 
-The engine (`phionyx-core`, **v0.9.0** on PyPI): a 46-block canonical pipeline (contract v3.8.0) with a
-state vector, kill switch, human-in-the-loop queue, ethics and safety gates, and a signed,
-hash-chained audit trail. Its founding axiom is that **LLM output is a sensor reading**, governed
-before it becomes action — not an oracle to be trusted.
+## Reference applications & demonstrations
 
-- [**phionyx-research**](https://github.com/halvrenofviryel/phionyx-research) — the core runtime + companion adapters. `pip install phionyx-core`.
-- [**phionyx-mcp-server**](https://github.com/halvrenofviryel/phionyx-mcp-server) — an MCP trust boundary: descriptor signing, signed envelopes, and an audit chain over third-party MCP tool calls.
-
-### 2 · AIREP — the AI Runtime Evidence Protocol
-
-A **neutral, vendor- and model-independent** record format: one signed, hash-chained, canonical-JSON
-record per AI runtime decision — what was decided, on what basis, and, distinctively, **what the
-evidence does not cover**. It is checkable offline by an independent verifier and depends on no
-Phionyx code; Phionyx is only its reference implementation and matures by conforming to it.
-
-- [**ai-runtime-evidence-protocol**](https://github.com/halvrenofviryel/ai-runtime-evidence-protocol) — the protocol: normative spec, JSON Schema, binding profiles, and two independent verifiers (Python + Node) that agree byte-for-byte. **Experimental** — a proposed open format, not a ratified standard.
-
-### 3 · Self-governance — binding an AI's own claims to evidence
-
-When an AI assistant helps write the software that governs AI assistants, its own development becomes
-the test. This line binds an assistant's **self-claims ("I fixed it / I tested it"), tool calls, and
-trace events** into verifiable runtime-evidence chains — gates that check what the agent says it did
-against the repository's actual diff, plus a binding hook layer that makes the checks non-optional.
-
-- [**phionyx-pipeline-mcp**](https://github.com/halvrenofviryel/phionyx-pipeline-mcp) — an MCP server that verifies an agent's own change/test claims against git-diff truth before they are trusted.
-- Adapter bridges export the same runtime evidence into common stacks: [**phionyx-eval-inspect**](https://github.com/halvrenofviryel/phionyx-eval-inspect) (Inspect AI `.eval` logs), [**phionyx-langchain-langgraph**](https://github.com/halvrenofviryel/phionyx-langchain-langgraph), and [**phionyx-openai-agents**](https://github.com/halvrenofviryel/phionyx-openai-agents) — each turning chain / tool / trace events into signed, hash-chained envelopes.
-
-## Applied
-
-The runtime shows up in real products that put bounded authority between AI and action:
-
-- [**hearthos**](https://github.com/halvrenofviryel/hearthos) — bounded-authority household AI: a browser-only demo with policy gates over every suggested action.
-- [**trace.phionyx.ai**](https://trace.phionyx.ai) — narrative-coherence for game/NPC and storytelling systems: it detects character drift and incoherent state before a scene reaches the player.
+- [**hearthos**](https://github.com/halvrenofviryel/hearthos) — bounded-authority household AI: a browser demo with policy gates over every suggested action. A reference application, not a product.
+- [**trace.phionyx.ai**](https://trace.phionyx.ai) — narrative-coherence for game/NPC and storytelling systems: detects character drift and incoherent state before a scene reaches the player.
 
 ## Core principles
 
@@ -106,6 +110,7 @@ The runtime shows up in real products that put bounded authority between AI and 
 - The Measurement Axioms: [github.com/halvrenofviryel/measurement-axioms](https://github.com/halvrenofviryel/measurement-axioms) · [DOI](https://doi.org/10.5281/zenodo.21763430)
 - CDE-12 (Control-Delivery Evidence): [DOI](https://doi.org/10.5281/zenodo.21631868)
 - AIREP protocol: [github.com/halvrenofviryel/ai-runtime-evidence-protocol](https://github.com/halvrenofviryel/ai-runtime-evidence-protocol)
+- Resonatus ontology: [w3id.org/resonatus](https://w3id.org/resonatus) · [DOI](https://doi.org/10.5281/zenodo.21939903)
 - Trace (narrative + School RPG demo): [trace.phionyx.ai](https://trace.phionyx.ai) · [@trace_phionyx](https://x.com/trace_phionyx)
 - Substack: [phionyxresearch.substack.com](https://phionyxresearch.substack.com)
 - X: [@phionyx_ai](https://x.com/phionyx_ai)
