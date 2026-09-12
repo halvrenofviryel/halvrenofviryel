@@ -46,9 +46,14 @@ was decided, on what basis, and, distinctively, **what the evidence does not
 cover**. Checkable offline by two cross-language first-party verifier
 implementations (Python + Node) that agree byte-for-byte; it depends on no
 Phionyx code. **Experimental** — a proposed open format, not a ratified
-standard. Phionyx currently emits RGE records; **no current RGE→AIREP
-conformance claim is made** — RGE is being developed toward AIREP
-interoperability.
+standard. AIREP v0.2.0-beta.1 (9 September 2026) is an experimental prerelease
+with a first-party Python producer for all four artifact families; the v0.1 line
+stays frozen and supported. External results are version- and role-specific — an
+independently authored producer measured against frozen v0.1.2, and an
+independently implemented consumer/verifier measured against an earlier v0.2
+handoff — and do not establish same-beta interoperability. Phionyx currently
+emits RGE records; **no current RGE→AIREP conformance claim is made** — RGE is
+being developed toward AIREP interoperability.
 
 **Measurement discipline** — the doctrine the rest of this is held to: *a
 governance system that returned `safe` may have checked nothing.* A governance
