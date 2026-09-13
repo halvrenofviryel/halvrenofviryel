@@ -115,6 +115,7 @@ events as hash-chained envelopes, optionally Ed25519-signed:
 - The Measurement Axioms: [github.com/halvrenofviryel/measurement-axioms](https://github.com/halvrenofviryel/measurement-axioms) · [DOI](https://doi.org/10.5281/zenodo.21763430)
 - CDE-12 (Control-Delivery Evidence): [DOI](https://doi.org/10.5281/zenodo.21631868)
 - AIREP protocol: [github.com/halvrenofviryel/ai-runtime-evidence-protocol](https://github.com/halvrenofviryel/ai-runtime-evidence-protocol)
+- Technical note: [Access Is Not Yet Verifiability](https://huggingface.co/blog/phionyx/access-is-not-yet-verifiability) — claim-preserving evidence across AI assurance pipelines (position paper, non-normative)
 - Resonatus ontology: [w3id.org/resonatus](https://w3id.org/resonatus) · [DOI](https://doi.org/10.5281/zenodo.21939903)
 - Trace (narrative + School RPG demo): [trace.phionyx.ai](https://trace.phionyx.ai) · [@trace_phionyx](https://x.com/trace_phionyx)
 - Substack: [phionyxresearch.substack.com](https://phionyxresearch.substack.com)
